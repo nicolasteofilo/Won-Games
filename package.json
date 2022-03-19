@@ -9,6 +9,7 @@
     "build": "next build",
     "start": "next start",
     "lint": "eslint src --max-warnings=0",
+    "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public"
   },
@@ -21,6 +22,7 @@
   "dependencies": {
     "next": "12.1.0",
     "next-pwa": "^5.4.5",
+    "plop": "^3.0.5",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "styled-components": "^5.3.3",
