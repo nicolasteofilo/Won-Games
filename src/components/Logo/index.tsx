@@ -2,10 +2,16 @@ import * as S from './styles'
 
 export type LogoProps = {
   color?: 'white' | 'black'
+  size?: 'normal' | 'large'
+  hideOnMobile?: boolean
 }
 
-const Logo = ({ color = 'white' }: LogoProps) => (
-  <S.Wrapper color={color}>
+const Logo = ({
+  color = 'white',
+  size = 'normal',
+  hideOnMobile = false
+}: LogoProps) => (
+  <S.Wrapper color={color} size={size} hideOnMobile={hideOnMobile}>
     <svg
       xmlns="http://www.w3.org/2000/svg"
       fill="none"
