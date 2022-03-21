@@ -40,6 +40,7 @@ const GlobalStyles = createGlobalStyle`
     html {
       font-family: ${theme.font.family};
       font-size: ${theme.font.sizes.medium};
+      font-weight: ${theme.font.normal};
     }
 
     body {
