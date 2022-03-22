@@ -15,10 +15,9 @@ const wrapperModifiers = {
       position: absolute;
       content: '';
       left: 0;
-      bottom: -0.5rem;
-      width: ${theme.spacings.xlarge};
-      height: 0.5rem;
-      background-color: ${theme.colors.primary};
+      bottom: -1rem;
+      width: 5rem;
+      border-bottom: 0.5rem solid ${theme.colors.primary};
     }
   `
 }
