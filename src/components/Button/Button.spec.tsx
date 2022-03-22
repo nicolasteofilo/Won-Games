@@ -33,4 +33,12 @@ describe('<Button />', () => {
       padding: `${theme.spacings.xxsmall} ${theme.spacings.xlarge}`
     })
   })
+
+  it('should render with full width version', () => {
+    renderWithTheme(<Button fullWidth>Won Games</Button>)
+
+    expect(screen.getByRole('button', { name: /Won Games/i })).toHaveStyle({
+      width: '100%'
+    })
+  })
 })
