@@ -3,7 +3,14 @@ import { Button } from '.'
 
 export default {
   title: 'Button',
-  component: Button
+  component: Button,
+  argTypes: {
+    children: { type: 'string' }
+  }
 } as Meta
 
-export const Basic: Story = () => <Button />
+export const Basic: Story = (args) => <Button {...args} />
+
+Basic.args = {
+  children: 'Hello Button'
+}
