@@ -1,18 +1,22 @@
 import { screen } from '@testing-library/react'
 import { renderWithTheme } from '../../utils/tests/helpers'
+import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
+
 import { Button } from '.'
 import 'jest-styled-components'
 import theme from '../../styles/theme'
 
 describe('<Button />', () => {
   it('should render the medium size by default', () => {
-    renderWithTheme(<Button>Won Games</Button>)
+    const { container } = renderWithTheme(<Button>Won</Button>)
 
-    expect(screen.getByRole('button', { name: /Won Games/i })).toHaveStyle({
+    expect(screen.getByRole('button', { name: /Won/i })).toHaveStyle({
       fontSize: '1.4rem',
       height: '4rem',
       padding: `${theme.spacings.xxsmall} ${theme.spacings.medium}`
     })
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 
   it('should render the small size', () => {
@@ -40,5 +44,14 @@ describe('<Button />', () => {
     expect(screen.getByRole('button', { name: /Won Games/i })).toHaveStyle({
       width: '100%'
     })
+  })
+
+  it('should render and icon version', () => {
+    renderWithTheme(
+      <Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>
+    )
+
+    expect(screen.getByText(/buy now/i)).toBeInTheDocument()
+    expect(screen.getByTestId(/icon/i)).toBeInTheDocument()
   })
 })
