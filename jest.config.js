@@ -10,5 +10,7 @@ module.exports = {
     '!src/pages/_app.tsx',
     '!src/pages/document.tsx'
   ],
-  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts']
+  setupFilesAfterEnv: ['<rootDir>/.jest/setup.ts'],
+  moduleDirectories: ['node_modules', 'src'],
+  roots: ['src']
 }
