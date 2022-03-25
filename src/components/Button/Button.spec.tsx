@@ -3,7 +3,6 @@ import { renderWithTheme } from '../../utils/tests/helpers'
 import { AddShoppingCart } from '@styled-icons/material-outlined/AddShoppingCart'
 
 import { Button } from '.'
-import 'jest-styled-components'
 import theme from '../../styles/theme'
 
 describe('<Button />', () => {
