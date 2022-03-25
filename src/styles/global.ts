@@ -39,7 +39,7 @@ const GlobalStyles = createGlobalStyle`
   ${({ theme }) => css`
     html {
       font-family: ${theme.font.family};
-      font-size: ${theme.font.sizes.medium};
+      font-size: 16px;
       font-weight: ${theme.font.normal};
     }
 
