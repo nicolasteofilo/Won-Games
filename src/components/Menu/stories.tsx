@@ -6,7 +6,16 @@ export default {
   component: Menu
 } as Meta
 
-export const Basic: Story<MenuProps> = (args) => <Menu {...args} />
+export const Basic: Story<MenuProps> = (args) => (
+  <div
+    style={{
+      maxWidth: '130rem',
+      margin: '0 auto'
+    }}
+  >
+    <Menu {...args} />
+  </div>
+)
 
 Basic.parameters = {
   viewport: { defaultViewport: 'mobile1' },
