@@ -23,6 +23,7 @@
     "next": "12.1.0",
     "next-pwa": "^5.4.5",
     "plop": "^3.0.5",
+    "polished": "^4.1.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
     "react-icons": "^4.3.1",
