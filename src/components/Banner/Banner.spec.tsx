@@ -28,4 +28,9 @@ describe('<Banner />', () => {
       })
     ).toBeInTheDocument()
   })
+  it('should the same as the snapshot', () => {
+    const { container } = renderWithTheme(<Banner {...props} />)
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })

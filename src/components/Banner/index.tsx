@@ -17,7 +17,7 @@ const Banner = ({
   buttonLink
 }: BannerProps) => (
   <S.Wrapper>
-    <S.Imgage src={img} role="img" aria-label={title} />
+    <S.Image src={img} role="img" aria-label={title} />
 
     <S.Caption>
       <S.Title>{title}</S.Title>
