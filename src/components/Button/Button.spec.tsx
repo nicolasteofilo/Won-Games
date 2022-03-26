@@ -53,4 +53,17 @@ describe('<Button />', () => {
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
     expect(screen.getByTestId(/icon/i)).toBeInTheDocument()
   })
+
+  it('should render the anchor version', () => {
+    renderWithTheme(
+      <Button as="a" href="https://google.com">
+        Buy now
+      </Button>
+    )
+
+    expect(screen.getByRole('link', { name: /buy now/i })).toHaveAttribute(
+      'href',
+      'https://google.com'
+    )
+  })
 })
