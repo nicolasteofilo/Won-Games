@@ -24,6 +24,7 @@ describe('<Highlight />', () => {
 
     expect(screen.getByRole('link', { name: /By now/i })).toBeInTheDocument()
   })
+
   it('should render backgroud image', () => {
     const {
       container: { firstChild }
@@ -32,5 +33,14 @@ describe('<Highlight />', () => {
     expect(firstChild).toHaveStyle({
       backgroundImage: `url(${props.backgroundImage})`
     })
+  })
+
+  it('should render backgroud image', () => {
+    renderWithTheme(<Highlight {...props} floatImage="/float-image.png" />)
+
+    expect(screen.getByRole('img', { name: props.title })).toHaveAttribute(
+      'src',
+      '/float-image.png'
+    )
   })
 })

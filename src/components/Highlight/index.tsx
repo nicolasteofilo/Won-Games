@@ -1,4 +1,5 @@
 import { Button } from 'components/Button'
+import media from 'styled-media-query'
 import * as S from './styles'
 
 export type HighlightProps = {
@@ -7,6 +8,7 @@ export type HighlightProps = {
   buttonLabel: string
   buttonLink: string
   backgroundImage: string
+  floatImage?: string
 }
 
 const Highlight = ({
@@ -14,13 +16,15 @@ const Highlight = ({
   subtitle,
   buttonLabel,
   buttonLink,
-  backgroundImage
+  backgroundImage,
+  floatImage
 }: HighlightProps) => (
   <S.Wrapper backgroundImage={backgroundImage}>
+    {!!floatImage && <S.FloatImage src={floatImage} alt={title} />}
     <S.Content>
       <S.Title>{title}</S.Title>
       <S.Subtitle>{subtitle}</S.Subtitle>
-      <Button as="a" href={buttonLink}>
+      <Button as="a" href={buttonLink} size="medium">
         {buttonLabel}
       </Button>
     </S.Content>
