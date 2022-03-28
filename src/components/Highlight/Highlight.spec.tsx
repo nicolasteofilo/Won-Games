@@ -1,6 +1,7 @@
 import { screen } from '@testing-library/react'
 import { Highlight } from '.'
 import { renderWithTheme } from '../../utils/tests/helpers'
+import * as S from './styles'
 
 const props = {
   title: 'Heading 1',
@@ -42,5 +43,33 @@ describe('<Highlight />', () => {
       'src',
       '/float-image.png'
     )
+  })
+
+  it('should render align right by default', () => {
+    const { container } = renderWithTheme(<Highlight {...props} />)
+
+    expect(container.firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'floatimage content'"
+    )
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'right', {
+      modifier: `${S.Content}`
+    })
+  })
+
+  it('should render align left passed prop', () => {
+    const { container } = renderWithTheme(
+      <Highlight {...props} alignment="left" />
+    )
+
+    expect(container.firstChild).toHaveStyleRule(
+      'grid-template-areas',
+      "'content floatimage'"
+    )
+
+    expect(container.firstChild).toHaveStyleRule('text-align', 'left', {
+      modifier: `${S.Content}`
+    })
   })
 })
