@@ -11,12 +11,19 @@ export default {
     price: 'R$ 250,00'
   },
   argTypes: {
-    onFav: { action: 'click' }
+    onFav: { action: 'click' },
+    ribbon: { type: 'string' }
   }
 } as Meta
 
 export const Basic: Story<GameCardProps> = (args) => (
   <div style={{ maxWidth: '30rem' }}>
     <GameCard {...args} />
+  </div>
+)
+
+export const WithRibbon: Story<GameCardProps> = (args) => (
+  <div style={{ maxWidth: '30rem' }}>
+    <GameCard {...args} ribbon="20% OFF" />
   </div>
 )
