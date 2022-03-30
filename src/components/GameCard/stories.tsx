@@ -9,6 +9,9 @@ export default {
     developer: 'Nintendo',
     img: 'https://www.dafont.com/forum/attach/orig/6/7/671219.jpg',
     price: 'R$ 250,00'
+  },
+  argTypes: {
+    onFav: { action: 'click' }
   }
 } as Meta
 
