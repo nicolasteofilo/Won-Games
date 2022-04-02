@@ -11,6 +11,19 @@ export const parameters = {
       date: /Date$/,
     },
   },
+  backgrounds: {
+    default: 'won-light',
+    values: [
+      {
+        name: 'won-light',
+        value: '#F2F2F2',
+      },
+      {
+        name: 'won-dark',
+        value: '#06092B',
+      }
+    ]
+  }
 }
 
 export const decorators = [
