@@ -54,12 +54,16 @@ describe('<GameCardSlider />', () => {
     const { container } = renderWithTheme(<GameCardSlider items={items} />)
 
     expect(container.querySelectorAll('.slick-active')).toHaveLength(4)
-    // expect(container.querySelectorAll('li.slick-active')).toHaveLength(1)
-    // expect(
-    //   screen.getByRole('heading', { name: /defy death 1/i, hidden: false })
-    // ).toBeInTheDocument()
-    // expect(
-    //   screen.getByRole('heading', { name: /defy death 2/i, hidden: true })
-    // ).toBeInTheDocument()
+  })
+
+  it('should render white arrows if color passed', () => {
+    renderWithTheme(<GameCardSlider items={items} color="white" />)
+
+    expect(screen.getByLabelText(/previous games/i)).toHaveStyle({
+      color: '#FAFAFA'
+    })
+    expect(screen.getByLabelText(/next games/i)).toHaveStyle({
+      color: '#FAFAFA'
+    })
   })
 })
