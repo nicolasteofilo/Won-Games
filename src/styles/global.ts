@@ -34,19 +34,21 @@ const GlobalStyles = createGlobalStyle`
     box-sizing: border-box;
     -webkit-font-smoothing: antialiased;
     -moz-osx-font-smoothing: grayscale;
+
+    &::before, &::after {
+      box-sizing: inherit;
+    }
   }
 
   ${({ theme }) => css`
     html {
-      font-family: ${theme.font.family};
-      font-size: 16px;
-      font-weight: ${theme.font.normal};
+      font-size: 62.5%;
     }
 
     body {
-      font-family: 'Poppins', -apple-system, BlinkMacSystemFont, 'Segoe UI',
-        Roboto, Oxygen, Ubuntu, Cantarell, 'Open Sans', 'Helvetica Neue',
-        sans-serif;
+      font-family: ${theme.font.family};
+      font-size: ${theme.font.sizes.medium};
+      background-color: ${theme.colors.mainBg};
     }
   `}
 
