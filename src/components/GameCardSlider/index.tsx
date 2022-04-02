@@ -7,7 +7,7 @@ import { GameCardProps, GameCard } from 'components/GameCard'
 
 import * as S from './styles'
 
-export type GameCardSlider = {
+export type GameCardSliderProps = {
   items: GameCardProps[]
   color?: 'black' | 'white'
 }
@@ -15,7 +15,7 @@ export type GameCardSlider = {
 const settings: SliderSetting = {
   infinite: false,
   nextArrow: <ArrowRight aria-label="next games" />,
-  prevArrow: <ArrowLeft aria-label="previus games" />,
+  prevArrow: <ArrowLeft aria-label="previous games" />,
   slidesToShow: 4,
   lazyLoad: 'ondemand',
   responsive: [
@@ -50,7 +50,7 @@ const settings: SliderSetting = {
   ]
 }
 
-const GameCardSlider = ({ items, color = 'black' }: GameCardSlider) => (
+const GameCardSlider = ({ items, color = 'black' }: GameCardSliderProps) => (
   <S.Wrapper color={color}>
     <Slider settings={settings}>
       {items.map((item, index) => (
