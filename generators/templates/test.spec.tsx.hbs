@@ -3,8 +3,8 @@ import { {{pascalCase name}} } from '.'
 
 describe('<{{pascalCase name}} />', () => {
   it('should render correctly', () => {
-    const {{pascalCase name}} = render(<{{pascalCase name}} />)
+    const { container } = render(<{{pascalCase name}} />)
 
-    expect({{pascalCase name}}).toBeInTheDocument()
-  }),
+    expect(container.firstChild).toBeInTheDocument()
+  })
 })
