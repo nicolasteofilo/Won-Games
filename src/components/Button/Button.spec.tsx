@@ -45,13 +45,34 @@ describe('<Button />', () => {
     })
   })
 
-  it('should render and icon version', () => {
+  it('should render an icon version', () => {
     renderWithTheme(
       <Button icon={<AddShoppingCart data-testid="icon" />}>Buy now</Button>
     )
 
     expect(screen.getByText(/buy now/i)).toBeInTheDocument()
     expect(screen.getByTestId(/icon/i)).toBeInTheDocument()
+  })
+
+  it('should render an minimum version', () => {
+    renderWithTheme(
+      <Button icon={<AddShoppingCart data-testid="icon" />} minimum>
+        Buy now
+      </Button>
+    )
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyle({
+      background: 'none',
+      color: '#F231A5'
+    })
+
+    expect(screen.getByRole('button', { name: /buy now/i })).toHaveStyleRule(
+      'background',
+      'none',
+      {
+        modifier: ':hover'
+      }
+    )
   })
 
   it('should render the anchor version', () => {
