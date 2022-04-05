@@ -7,3 +7,13 @@ export default {
 } as Meta
 
 export const Basic: Story<CheckboxProps> = (args) => <Checkbox {...args} />
+
+export const Multiples: Story<CheckboxProps> = (args) => (
+  <div>
+    <Checkbox {...args} label="Windows" labelFor="win" />
+    <br />
+    <Checkbox {...args} label="Mac" labelFor="mac" />
+    <br />
+    <Checkbox {...args} label="Linux" labelFor="linux" />
+  </div>
+)
