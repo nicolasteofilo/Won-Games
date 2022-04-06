@@ -19,10 +19,16 @@ export const IsChecked: Story<CheckboxProps> = (args) => (
 
 export const Multiples: Story<CheckboxProps> = (args) => (
   <div>
-    <Checkbox {...args} label="Windows" labelFor="win" />
+    <Checkbox
+      {...args}
+      label="Windows"
+      labelFor="win"
+      isChecked
+      name="category"
+    />
     <br />
-    <Checkbox {...args} label="Mac" labelFor="mac" />
+    <Checkbox {...args} label="Mac" labelFor="mac" name="category" />
     <br />
-    <Checkbox {...args} label="Linux" labelFor="linux" />
+    <Checkbox {...args} label="Linux" labelFor="linux" name="category" />
   </div>
 )
