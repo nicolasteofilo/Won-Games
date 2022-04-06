@@ -80,4 +80,24 @@ describe('<Checkbox />', () => {
     })
     expect(onCheck).toHaveBeenCalledWith(false)
   })
+
+  it('should be accessible with tab', () => {
+    renderWithTheme(
+      <Checkbox label="checkbox label" labelFor="check" labelColor="black" />
+    )
+
+    expect(document.body).toHaveFocus()
+
+    userEvent.tab()
+
+    expect(screen.getByLabelText(/checkbox label/i)).toHaveFocus()
+  })
+
+  it('should be able to match the snapshot', () => {
+    const { container } = renderWithTheme(
+      <Checkbox label="checkbox label" labelFor="check" labelColor="black" />
+    )
+
+    expect(container.firstChild).toMatchSnapshot()
+  })
 })
