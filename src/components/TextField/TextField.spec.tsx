@@ -64,4 +64,12 @@ describe('<TextField />', () => {
 
     expect(screen.getByTestId('icon')).toBeInTheDocument()
   })
+
+  it('should be able to change the icon position to the right', () => {
+    renderWithTheme(
+      <TextField icon={<Email data-testid="icon" />} iconPosition="right" />
+    )
+
+    expect(screen.getByTestId('icon').parentElement).toHaveStyle({ order: 1 })
+  })
 })
