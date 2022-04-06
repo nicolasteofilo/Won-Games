@@ -13,6 +13,10 @@ export default {
 
 export const Basic: Story<CheckboxProps> = (args) => <Checkbox {...args} />
 
+export const IsChecked: Story<CheckboxProps> = (args) => (
+  <Checkbox {...args} isChecked />
+)
+
 export const Multiples: Story<CheckboxProps> = (args) => (
   <div>
     <Checkbox {...args} label="Windows" labelFor="win" />
