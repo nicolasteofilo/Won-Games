@@ -1,5 +1,5 @@
 import { Auth } from '../templates/Auth'
 
 export default function SingUp() {
-  return <Auth />
+  return <Auth title="Sing Up">children</Auth>
 }
