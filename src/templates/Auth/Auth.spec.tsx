@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Auth } from '.'
 
 describe('<Auth />', () => {

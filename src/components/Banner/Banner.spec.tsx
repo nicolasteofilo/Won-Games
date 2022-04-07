@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react'
+import { screen } from '@testing-library/react'
 import { Banner } from '.'
 import theme from 'styles/theme'
 import { renderWithTheme } from '../../utils/tests/helpers'

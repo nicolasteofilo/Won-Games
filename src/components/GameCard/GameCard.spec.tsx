@@ -1,4 +1,4 @@
-import { screen, render, fireEvent } from '@testing-library/react'
+import { screen, fireEvent } from '@testing-library/react'
 import theme from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { GameCard } from '.'
