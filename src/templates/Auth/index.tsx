@@ -11,7 +11,7 @@ const Auth = ({ children, title }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <Logo />
-      <Heading>All your favorites games in one place</Heading>
+      <Heading>All your favorite games in one place</Heading>
       <S.Subtitle>
         <strong>WON </strong>
         is the best and most complete gaming platform.
