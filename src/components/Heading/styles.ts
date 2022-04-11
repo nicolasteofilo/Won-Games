@@ -22,7 +22,7 @@ const wrapperModifiers = {
   `,
 
   huge: (theme: DefaultTheme) => css`
-    font-size: ${theme.font.sizes.xlarge};
+    font-size: ${theme.font.sizes.huge};
 
     ${media.greaterThan('medium')`
       font-size: ${theme.font.sizes.huge};
