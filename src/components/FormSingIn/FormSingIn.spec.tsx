@@ -4,7 +4,7 @@ import { FormSingIn } from '.'
 
 describe('<FormSingIn />', () => {
   it('should render the form', () => {
-    renderWithTheme(<FormSingIn />)
+    const { container } = renderWithTheme(<FormSingIn />)
 
     expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
@@ -14,6 +14,8 @@ describe('<FormSingIn />', () => {
         name: /sing in now/i
       })
     ).toBeInTheDocument()
+
+    expect(container.parentElement).toMatchSnapshot()
   })
 
   it('should render the forgot password link', () => {
