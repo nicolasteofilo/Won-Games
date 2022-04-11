@@ -5,10 +5,12 @@ import { Button } from 'components/Button'
 
 import TextField from 'components/TextField'
 
+import { FormWrapper, FormLink } from 'components/Form'
+
 import * as S from './styles'
 
 const FormSignIn = () => (
-  <S.Wrapper>
+  <FormWrapper>
     <form>
       <TextField
         name="email"
@@ -26,14 +28,14 @@ const FormSignIn = () => (
       <Button fullWidth size="large">
         Sing in now
       </Button>
-      <S.FormLink>
+      <FormLink>
         Don’t have an account?{' '}
         <Link href="/sing-up">
           <a>Sing up</a>
         </Link>
-      </S.FormLink>
+      </FormLink>
     </form>
-  </S.Wrapper>
+  </FormWrapper>
 )
 
 export { FormSignIn }
