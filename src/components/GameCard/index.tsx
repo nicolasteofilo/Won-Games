@@ -3,7 +3,7 @@ import {
   FavoriteBorder,
   Favorite
 } from '@styled-icons/material-outlined'
-import { Button } from 'components/Button'
+import Button from 'components/Button'
 import { Ribbon } from 'components/Ribbon'
 import * as S from './styles'
 

@@ -8,8 +8,9 @@ import {
 import { Logo } from 'components/Logo'
 import * as S from './styles'
 import { useState } from 'react'
-import { Button } from 'components/Button'
+import Button from 'components/Button'
 import MediaMatch from 'components/MediaMatch'
+import Link from 'next/link'
 
 export type MenuProps = {
   username?: string
@@ -46,9 +47,9 @@ const Menu = ({ username }: MenuProps) => {
         </S.IconWrapper>
         {!username && (
           <MediaMatch greaterThan="medium">
-            <Button as="a" href="/sign-in">
-              Sign In
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a">Sign In</Button>
+            </Link>
           </MediaMatch>
         )}
       </S.MenuGroup>
@@ -56,7 +57,9 @@ const Menu = ({ username }: MenuProps) => {
       <S.MenuFull aria-hidden={!isOpen} isOpen={isOpen}>
         <CloseIcon aria-label="Close menu" onClick={() => setIsOpen(false)} />
         <S.MenuNav>
-          <S.MenuLink href="#">Home</S.MenuLink>
+          <Link href="/" passHref>
+            <S.MenuLink>Home</S.MenuLink>
+          </Link>
           <S.MenuLink href="#">Explorer</S.MenuLink>
 
           {!!username && (
@@ -69,13 +72,15 @@ const Menu = ({ username }: MenuProps) => {
 
         {!username && (
           <S.RegisterBox>
-            <Button fullWidth size="large">
-              Log in now
-            </Button>
+            <Link href="/sign-in" passHref>
+              <Button as="a" fullWidth size="large">
+                Log in now
+              </Button>
+            </Link>
             <span>or</span>
-            <S.CreateAccount href="#" title="Sing In">
-              Sing up
-            </S.CreateAccount>
+            <Link href="/sign-up" passHref>
+              <S.CreateAccount title="Sing In">Sing up</S.CreateAccount>
+            </Link>
           </S.RegisterBox>
         )}
       </S.MenuFull>

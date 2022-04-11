@@ -12,9 +12,18 @@ export const Wrapper = styled.menu`
 
 export const LogoWrapper = styled.div`
   ${media.lessThan('medium')`
-  position: absolute;
-  left: 50%;
-  transform: translateX(-50%);
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+  `}
+`
+
+export const IconWrapper = styled.div`
+  ${({ theme }) => css`
+    color: ${theme.colors.white};
+    cursor: pointer;
+    width: 2.4rem;
+    height: 2.4rem;
   `}
 `
 
@@ -22,8 +31,8 @@ export const MenuGroup = styled.div`
   ${({ theme }) => css`
     display: flex;
     flex-grow: 1;
-    align-items: center;
     justify-content: flex-end;
+    align-items: center;
 
     > div {
       margin-left: ${theme.spacings.xsmall};
@@ -31,29 +40,20 @@ export const MenuGroup = styled.div`
   `}
 `
 
-export const IconWrapper = styled.div`
-  ${({ theme }) => css`
-    color: ${theme.colors.white};
-    width: 2.4rem;
-    height: 2.4rem;
-    cursor: pointer;
-  `}
-`
-
 export const MenuNav = styled.div`
   ${({ theme }) => css`
     ${media.greaterThan('medium')`
-      margin-left: ${theme.spacings.small};
-    `}
+			margin-left: ${theme.spacings.small};
+		`}
   `}
 `
 
 export const MenuLink = styled.a`
   ${({ theme }) => css`
     position: relative;
+    color: ${theme.colors.white};
     font-size: ${theme.font.sizes.medium};
     margin: 0.3rem ${theme.spacings.small} 0;
-    color: ${theme.colors.white};
     text-decoration: none;
     text-align: center;
 
@@ -63,7 +63,7 @@ export const MenuLink = styled.a`
         position: absolute;
         display: block;
         height: 0.3rem;
-        background: ${theme.colors.primary};
+        background-color: ${theme.colors.primary};
         animation: hoverAnimation 0.2s forwards;
       }
 
@@ -86,18 +86,20 @@ type MenuFullProps = {
 }
 
 export const MenuFull = styled.nav<MenuFullProps>`
-  ${({ isOpen, theme }) => css`
+  ${({ theme, isOpen }) => css`
     display: flex;
     flex-direction: column;
     justify-content: space-between;
-    background-color: ${theme.colors.white};
-    position: absolute;
-    left: 0;
-    right: 0;
+    background: ${theme.colors.white};
+    position: fixed;
+    z-index: ${theme.layers.menu};
     top: 0;
     bottom: 0;
-    transition: opacity 0.3s ease-in-out;
+    left: 0;
+    right: 0;
     height: 100vh;
+    overflow: hidden;
+    transition: opacity 0.3s ease-in-out;
     opacity: ${isOpen ? 1 : 0};
     pointer-events: ${isOpen ? 'all' : 'none'};
 
@@ -109,15 +111,14 @@ export const MenuFull = styled.nav<MenuFullProps>`
       cursor: pointer;
       width: 2.4rem;
       height: 2.4rem;
-      color: ${theme.colors.black};
     }
 
     ${MenuNav} {
       display: flex;
       align-items: center;
       justify-content: center;
-      flex-direction: column;
       flex: 1;
+      flex-direction: column;
     }
 
     ${MenuLink} {
@@ -125,12 +126,12 @@ export const MenuFull = styled.nav<MenuFullProps>`
       font-weight: ${theme.font.bold};
       font-size: ${theme.font.sizes.xlarge};
       margin-bottom: ${theme.spacings.small};
-      transform: ${isOpen ? 'translateY(0)' : 'translateY(5rem)'};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
 
     ${RegisterBox} {
-      transform: ${isOpen ? 'translateY(0)' : 'translateY(5rem)'};
+      transform: ${isOpen ? 'translateY(0)' : 'translateY(3rem)'};
       transition: transform 0.3s ease-in-out;
     }
   `}
