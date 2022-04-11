@@ -7,7 +7,7 @@ import TextField from 'components/TextField'
 
 import * as S from './styles'
 
-const FormSingIn = () => (
+const FormSignIn = () => (
   <S.Wrapper>
     <form>
       <TextField
@@ -36,4 +36,4 @@ const FormSingIn = () => (
   </S.Wrapper>
 )
 
-export { FormSingIn }
+export { FormSignIn }

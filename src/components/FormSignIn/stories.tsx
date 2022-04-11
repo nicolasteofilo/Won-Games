@@ -1,9 +1,9 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
-import { FormSingIn } from '.'
+import { FormSignIn } from '.'
 
 export default {
   title: 'Form/FormSingIn',
-  component: FormSingIn
+  component: FormSignIn
 } as Meta
 
 export const Basic: Story = () => (
@@ -13,6 +13,6 @@ export const Basic: Story = () => (
       margin: 'auto'
     }}
   >
-    <FormSingIn />
+    <FormSignIn />
   </div>
 )
