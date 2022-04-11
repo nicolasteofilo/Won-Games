@@ -6,6 +6,7 @@
     "prepare": "husky install",
     "dev": "next dev",
     "test": "jest",
+    "test:ci": "jest --runInBand --passWithNoTests --coverage",
     "test:unit": "yarn test --watch",
     "build": "next build",
     "start": "next start",
