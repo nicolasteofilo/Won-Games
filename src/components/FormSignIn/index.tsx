@@ -26,12 +26,12 @@ const FormSignIn = () => (
       />
       <S.ForgotPassword href="#">Forgot your password?</S.ForgotPassword>
       <Button fullWidth size="large">
-        Sing in now
+        Sign in now
       </Button>
       <FormLink>
         Don’t have an account?{' '}
-        <Link href="/sing-up">
-          <a>Sing up</a>
+        <Link href="/sign-up">
+          <a>Sign up</a>
         </Link>
       </FormLink>
     </form>
