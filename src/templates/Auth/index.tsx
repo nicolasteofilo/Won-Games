@@ -11,7 +11,7 @@ const Auth = ({ children, title }: AuthProps) => (
   <S.Wrapper>
     <S.BannerBlock>
       <S.BannerContent>
-        <Logo />
+        <Logo id="banner" />
         <div>
           <Heading>All your favorite games in one place</Heading>
           <S.Subtitle>
@@ -27,7 +27,7 @@ const Auth = ({ children, title }: AuthProps) => (
     </S.BannerBlock>
     <S.Content>
       <S.ContentWrapper>
-        <Logo color="black" size="large" />
+        <Logo id="form" color="black" size="large" />
         <Heading color="black" lineLeft lineColor="secondary">
           {title}
         </Heading>
