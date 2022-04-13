@@ -7,7 +7,7 @@ export default {
   title: 'Showcase',
   component: Showcase,
   decorators: [
-    (Story: any) => (
+    (Story) => (
       <div style={{ margin: '0 auto' }}>
         <Story />
       </div>

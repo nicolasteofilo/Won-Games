@@ -1,4 +1,4 @@
-import { screen, render } from '@testing-library/react'
+import { render } from '@testing-library/react'
 import { Showcase } from '.'
 
 describe('<Showcase />', () => {
