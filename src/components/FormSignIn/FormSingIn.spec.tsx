@@ -9,11 +9,7 @@ describe('<FormSignIn />', () => {
     expect(screen.getByPlaceholderText(/email/i)).toBeInTheDocument()
     expect(screen.getByPlaceholderText(/password/i)).toBeInTheDocument()
 
-    expect(
-      screen.getByRole('button', {
-        name: /sing in now/i
-      })
-    ).toBeInTheDocument()
+    expect(screen.queryByRole('button', { name: /sing in now/i }))
 
     expect(container.parentElement).toMatchSnapshot()
   })
@@ -32,10 +28,6 @@ describe('<FormSignIn />', () => {
     renderWithTheme(<FormSignIn />)
 
     expect(screen.getByText(/Don’t have an account?/i)).toBeInTheDocument()
-    expect(
-      screen.getByRole('link', {
-        name: /Sing up/i
-      })
-    )
+    expect(screen.queryByRole('link', { name: /Sing up/i }))
   })
 })

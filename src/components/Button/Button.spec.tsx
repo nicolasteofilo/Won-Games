@@ -54,9 +54,9 @@ describe('<Button />', () => {
     expect(screen.getByTestId(/icon/i)).toBeInTheDocument()
   })
 
-  it('should render an minimum version', () => {
+  it('should render an minimal version', () => {
     renderWithTheme(
-      <Button icon={<AddShoppingCart data-testid="icon" />} minimum>
+      <Button icon={<AddShoppingCart data-testid="icon" />} minimal>
         Buy now
       </Button>
     )
