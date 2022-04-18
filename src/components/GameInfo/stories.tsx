@@ -1,15 +1,25 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
-import { GameInfo } from '.'
+import { GameInfo, GameInfoProps } from '.'
+
+import gameInfoMock from './mock'
 
 export default {
   title: 'GameInfo',
-  component: GameInfo
+  component: GameInfo,
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
-const props = {
-  title: 'Forza Horizon 4',
-  description: 'Forza Horizon 4 is a racing video game',
-  price: '50.00'
-}
-
-export const Basic: Story = () => <GameInfo {...props} />
+export const Basic: Story<GameInfoProps> = () => (
+  <div
+    style={{
+      maxWidth: '120rem',
+      padding: '1.5rem'
+    }}
+  >
+    <GameInfo {...gameInfoMock} />
+  </div>
+)
