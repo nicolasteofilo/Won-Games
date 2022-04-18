@@ -3,9 +3,9 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { GameInfo } from '.'
 
 const props = {
-  title: 'Forza Horizon 4',
-  description: 'Forza Horizon 4 is a racing video game',
-  price: '50.00'
+  title: 'My Game Title',
+  description: 'Game Description',
+  price: '210,00'
 }
 
 describe('<GameInfo />', () => {
