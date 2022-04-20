@@ -5,7 +5,7 @@ import { GameCardProps } from 'components/GameCard'
 import { GameCardSlider } from '.'
 
 export default {
-  title: 'GameCardSlider',
+  title: 'Game/GameCardSlider',
   component: GameCardSlider,
   args: { items },
   parameters: {
