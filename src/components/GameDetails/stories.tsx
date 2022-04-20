@@ -1,6 +1,8 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
 import { GameDetails, GameDetailsProps } from '.'
 
+import mockGame from './mock'
+
 export default {
   title: 'GameDetails',
   component: GameDetails,
@@ -9,12 +11,7 @@ export default {
       default: 'won-dark'
     }
   },
-  args: {
-    platforms: ['linux', 'mac', 'windows'],
-    developer: 'GearBox Software',
-    releaseDate: '2019-11-16T23:00:00',
-    rating: 'BR14'
-  },
+  args: mockGame,
   argTypes: {
     platforms: {
       control: {
