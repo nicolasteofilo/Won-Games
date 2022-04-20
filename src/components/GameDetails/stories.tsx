@@ -10,7 +10,8 @@ export default {
     }
   },
   args: {
-    platforms: ['linux', 'mac', 'windows']
+    platforms: ['linux', 'mac', 'windows'],
+    developer: 'GearBox Software'
   },
   argTypes: {
     platforms: {
