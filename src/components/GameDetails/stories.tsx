@@ -11,7 +11,9 @@ export default {
   },
   args: {
     platforms: ['linux', 'mac', 'windows'],
-    developer: 'GearBox Software'
+    developer: 'GearBox Software',
+    releaseDate: '2019-11-16T23:00:00',
+    rating: 'BR14'
   },
   argTypes: {
     platforms: {
