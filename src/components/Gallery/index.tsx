@@ -1,3 +1,4 @@
+import { useState } from 'react'
 import {
   ArrowBackIos as ArrowLeft,
   ArrowForwardIos as ArrowRight
@@ -16,16 +17,15 @@ export type GalleryProps = {
 }
 
 const settings: SliderSetting = {
-  infinite: false,
-  nextArrow: <ArrowRight aria-label="next image" />,
-  prevArrow: <ArrowLeft aria-label="previous image" />,
+  arrows: true,
   slidesToShow: 4,
+  infinite: false,
   lazyLoad: 'ondemand',
   responsive: [
     {
       breakpoint: 1375,
       settings: {
-        arrows: false,
+        arrows: true,
         slidesToShow: 3.2,
         draggable: true
       }
@@ -46,22 +46,35 @@ const settings: SliderSetting = {
         draggable: true
       }
     }
-  ]
+  ],
+  nextArrow: <ArrowRight aria-label="next image" />,
+  prevArrow: <ArrowLeft aria-label="previous image" />
 }
 
-const Gallery = ({ items }: GalleryProps) => (
-  <S.Wrapper>
-    <Slider settings={settings}>
-      {items.map((item) => (
-        <img
-          key={item.src}
-          role="button"
-          src={item.src}
-          alt={`Thumb - ${item.label}`}
-        />
-      ))}
-    </Slider>
-  </S.Wrapper>
-)
+const Gallery = ({ items }: GalleryProps) => {
+  const [isOpen, setIsOpen] = useState(false)
+
+  return (
+    <S.Wrapper>
+      <Slider settings={settings}>
+        {items.map((item) => (
+          <img
+            key={item.src}
+            role="button"
+            src={item.src}
+            alt={`Thumb - ${item.label}`}
+            onClick={() => setIsOpen(true)}
+          />
+        ))}
+      </Slider>
+
+      <S.Modal
+        isOpen={isOpen}
+        aria-label="modal"
+        aria-hidden={!isOpen}
+      ></S.Modal>
+    </S.Wrapper>
+  )
+}
 
 export { Gallery }
