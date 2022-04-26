@@ -1,6 +1,6 @@
 import { Meta, Story } from '@storybook/react/types-6-0'
 import { Settings } from 'react-slick'
-import { Slider } from '.'
+import Slider from '.'
 import styled from 'styled-components'
 
 export default {

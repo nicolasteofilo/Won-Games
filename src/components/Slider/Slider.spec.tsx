@@ -1,10 +1,11 @@
 import '../../../.jest/match-media-mock'
-import { render, screen } from '@testing-library/react'
-import { Slider } from '.'
+import { screen } from '@testing-library/react'
+import Slider from '.'
+import { renderWithTheme } from 'utils/tests/helpers'
 
 describe('<Slider />', () => {
   it('should render children as slider item', () => {
-    render(
+    renderWithTheme(
       <Slider settings={{ slidesToScroll: 2, infinite: false }}>
         <p>Item 1</p>
         <p>Item 2</p>
@@ -21,7 +22,7 @@ describe('<Slider />', () => {
   })
 
   it('should match snapshot', () => {
-    const { container } = render(
+    const { container } = renderWithTheme(
       <Slider settings={{ slidesToScroll: 2, infinite: false }}>
         <p>Item 1</p>
         <p>Item 2</p>

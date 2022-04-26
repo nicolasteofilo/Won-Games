@@ -1,32 +1,30 @@
-import { useState, useEffect } from 'react'
-import {
-  ArrowBackIos as ArrowLeft,
-  ArrowForwardIos as ArrowRight,
-  Close as CloseIcon
-} from '@styled-icons/material-outlined'
-import { Slider, SliderSetting } from 'components/Slider'
+/* eslint-disable @typescript-eslint/no-non-null-assertion */
+import { useState, useEffect, useRef } from 'react'
+import { ArrowBackIos as ArrowLeft } from '@styled-icons/material-outlined/ArrowBackIos'
+import { ArrowForwardIos as ArrowRight } from '@styled-icons/material-outlined/ArrowForwardIos'
+import { Close } from '@styled-icons/material-outlined/Close'
+import SlickSlider from 'react-slick'
+
+import Slider, { SliderSettings } from 'components/Slider'
 
 import * as S from './styles'
 
-export type GalleryImageProps = {
-  src: string
-  label: string
-}
-
-export type GalleryProps = {
-  items: GalleryImageProps[]
-}
-
-const settings: SliderSetting = {
-  arrows: true,
-  slidesToShow: 4,
+const commonSettings: SliderSettings = {
   infinite: false,
   lazyLoad: 'ondemand',
+  arrows: true,
+  nextArrow: <ArrowRight aria-label="next image" />,
+  prevArrow: <ArrowLeft aria-label="previous image" />
+}
+
+const settings: SliderSettings = {
+  ...commonSettings,
+  slidesToShow: 4,
   responsive: [
     {
       breakpoint: 1375,
       settings: {
-        arrows: true,
+        arrows: false,
         slidesToShow: 3.2,
         draggable: true
       }
@@ -47,45 +45,69 @@ const settings: SliderSetting = {
         draggable: true
       }
     }
-  ],
-  nextArrow: <ArrowRight aria-label="next image" />,
-  prevArrow: <ArrowLeft aria-label="previous image" />
+  ]
+}
+
+const modalSettings: SliderSettings = {
+  ...commonSettings,
+  slidesToShow: 1
+}
+
+export type GalleryImageProps = {
+  src: string
+  label: string
+}
+
+export type GalleryProps = {
+  items: GalleryImageProps[]
 }
 
 const Gallery = ({ items }: GalleryProps) => {
+  const slider = useRef<SlickSlider>(null)
   const [isOpen, setIsOpen] = useState(false)
 
   useEffect(() => {
     const handleKeyUp = ({ key }: KeyboardEvent) => {
       key === 'Escape' && setIsOpen(false)
     }
-    window.addEventListener('keyup', handleKeyUp)
 
+    window.addEventListener('keyup', handleKeyUp)
     return () => window.removeEventListener('keyup', handleKeyUp)
   }, [])
 
   return (
     <S.Wrapper>
-      <Slider settings={settings}>
-        {items.map((item) => (
+      <Slider ref={slider} settings={settings}>
+        {items.map((item, index) => (
           <img
-            key={item.src}
             role="button"
+            key={`thumb-${index}`}
             src={item.src}
             alt={`Thumb - ${item.label}`}
-            onClick={() => setIsOpen(true)}
+            onClick={() => {
+              setIsOpen(true)
+              slider.current!.slickGoTo(index, true)
+            }}
           />
         ))}
       </Slider>
 
       <S.Modal isOpen={isOpen} aria-label="modal" aria-hidden={!isOpen}>
         <S.Close
-          aria-label="close modal"
           role="button"
+          aria-label="close modal"
           onClick={() => setIsOpen(false)}
         >
-          <CloseIcon size={40} />
+          <Close size={40} />
         </S.Close>
+
+        <S.Content>
+          <Slider ref={slider} settings={modalSettings}>
+            {items.map((item, index) => (
+              <img key={`gallery-${index}`} src={item.src} alt={item.label} />
+            ))}
+          </Slider>
+        </S.Content>
       </S.Modal>
     </S.Wrapper>
   )
