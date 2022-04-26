@@ -1,7 +1,8 @@
 import { useState } from 'react'
 import {
   ArrowBackIos as ArrowLeft,
-  ArrowForwardIos as ArrowRight
+  ArrowForwardIos as ArrowRight,
+  Close as CloseIcon
 } from '@styled-icons/material-outlined'
 import { Slider, SliderSetting } from 'components/Slider'
 
@@ -68,11 +69,15 @@ const Gallery = ({ items }: GalleryProps) => {
         ))}
       </Slider>
 
-      <S.Modal
-        isOpen={isOpen}
-        aria-label="modal"
-        aria-hidden={!isOpen}
-      ></S.Modal>
+      <S.Modal isOpen={isOpen} aria-label="modal" aria-hidden={!isOpen}>
+        <S.Close
+          aria-label="close modal"
+          role="button"
+          onClick={() => setIsOpen(false)}
+        >
+          <CloseIcon size={40} />
+        </S.Close>
+      </S.Modal>
     </S.Wrapper>
   )
 }
