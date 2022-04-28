@@ -16,6 +16,24 @@ const GlobalStyles: GlobalStyleComponent<
   @font-face {
     font-family: 'Poppins';
     font-style: normal;
+    font-weight: 100;
+    font-display: swap;
+    src: local(''),
+        url('/fonts/poppins-v20-latin-100.woff2') format('woff2'),
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
+    font-weight: 200;
+    font-display: swap;
+    src: local(''),
+        url('/fonts/poppins-v20-latin-200.woff2') format('woff2'),
+  }
+
+  @font-face {
+    font-family: 'Poppins';
+    font-style: normal;
     font-weight: 300;
     font-display: swap;
     src: local(''),
