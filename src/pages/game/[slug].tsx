@@ -1,5 +1,7 @@
 import { Game, GameTemplateProps } from 'templates/Game'
 
+import galleryMock from 'components/Gallery/mock'
+
 export default function Index(props: GameTemplateProps) {
   return (
     <>
@@ -31,7 +33,8 @@ export async function getStaticProps() {
         description:
           'Cyberpunk 2077 is a first-person shooter video game developed by CD Projekt and published by Sony Interactive Entertainment.',
         price: '59.99'
-      }
+      },
+      gallery: galleryMock
     }
   }
 }
