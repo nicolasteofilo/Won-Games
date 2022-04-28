@@ -1,3 +1,5 @@
+import { Base } from 'templates/Base'
+
 export default function Index() {
-  return <h1>Game</h1>
+  return <Base>as</Base>
 }
