@@ -1,5 +1,9 @@
-import { Base } from 'templates/Base'
+import { Game } from 'templates/Game'
 
 export default function Index() {
-  return <Base>as</Base>
+  return (
+    <>
+      <Game />
+    </>
+  )
 }
