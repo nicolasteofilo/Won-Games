@@ -1,4 +1,4 @@
-import { Game, GameTemplateProps } from 'templates/Game'
+import Game, { GameTemplateProps } from 'templates/Game'
 
 import galleryMock from 'components/Gallery/mock'
 import gameDetailsMock from 'components/GameDetails/mock'
@@ -43,7 +43,7 @@ export async function getStaticProps() {
     <p class="description__copyrights">
 
     CD PROJEKT®, Cyberpunk®, Cyberpunk 2077® are registered trademarks of CD PROJEKT S.A. © 2019
-    CD PROJEKT S.A. All rights reserved. All other copyrights and trademarks are the property of their
+    CD PROJEKT S.A. All rgameDetailsMockights reserved. All other copyrights and trademarks are the property of their
     respective owners.
   </p>`
 

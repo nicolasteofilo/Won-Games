@@ -113,4 +113,4 @@ const Gallery = ({ items }: GalleryProps) => {
   )
 }
 
-export { Gallery }
+export default Gallery

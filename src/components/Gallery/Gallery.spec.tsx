@@ -2,7 +2,7 @@ import '../../../.jest/match-media-mock'
 import { fireEvent, screen } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 
-import { Gallery } from '.'
+import Gallery from '.'
 
 import mockItems from './mock'
 

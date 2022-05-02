@@ -36,4 +36,4 @@ const GameInfo = ({ title, description, price }: GameInfoProps) => (
   </S.Wrapper>
 )
 
-export { GameInfo }
+export default GameInfo
