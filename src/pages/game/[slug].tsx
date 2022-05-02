@@ -1,6 +1,7 @@
 import { Game, GameTemplateProps } from 'templates/Game'
 
 import galleryMock from 'components/Gallery/mock'
+import gameDetailsMock from 'components/GameDetails/mock'
 
 export default function Index(props: GameTemplateProps) {
   return (
@@ -55,7 +56,8 @@ export async function getStaticProps() {
         price: '59.99'
       },
       gallery: galleryMock,
-      description: descriptionHTML
+      description: descriptionHTML,
+      details: gameDetailsMock
     }
   }
 }

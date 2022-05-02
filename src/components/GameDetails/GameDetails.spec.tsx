@@ -3,7 +3,8 @@ import { renderWithTheme } from 'utils/tests/helpers'
 import { GameDetails, GameDetailsProps } from '.'
 
 const props: GameDetailsProps = {
-  developer: 'GearBox Software',
+  developer: 'GearBox Software developers',
+  publisher: 'GearBox Software',
   platforms: ['linux', 'mac', 'windows'],
   releaseDate: '2019-11-16T23:00:00',
   rating: 'BR0',
@@ -48,6 +49,18 @@ describe('<GameDetails />', () => {
     renderWithTheme(<GameDetails {...props} rating="BR14" />)
 
     expect(screen.getByText(/14\+/i)).toBeInTheDocument()
+  })
+
+  it('should render publisher', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/GearBox Software/i)).toBeInTheDocument()
+  })
+
+  it('should render developer', () => {
+    renderWithTheme(<GameDetails {...props} />)
+
+    expect(screen.getByText(/GearBox Software developers/i)).toBeInTheDocument()
   })
 
   it('should render the formatted date', () => {
