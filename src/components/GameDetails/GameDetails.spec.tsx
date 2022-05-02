@@ -51,18 +51,6 @@ describe('<GameDetails />', () => {
     expect(screen.getByText(/14\+/i)).toBeInTheDocument()
   })
 
-  it('should render publisher', () => {
-    renderWithTheme(<GameDetails {...props} />)
-
-    expect(screen.getByText(/GearBox Software/i)).toBeInTheDocument()
-  })
-
-  it('should render developer', () => {
-    renderWithTheme(<GameDetails {...props} />)
-
-    expect(screen.getByText(/GearBox Software developers/i)).toBeInTheDocument()
-  })
-
   it('should render the formatted date', () => {
     renderWithTheme(<GameDetails {...props} />)
 
