@@ -28,7 +28,11 @@ const Menu = ({ username }: MenuProps) => {
       </MediaMatch>
 
       <S.LogoWrapper>
-        <Logo hideOnMobile aria-label="Logo" />
+        <Link href="/" passHref>
+          <a href="">
+            <Logo hideOnMobile aria-label="Logo" />
+          </a>
+        </Link>
       </S.LogoWrapper>
 
       <MediaMatch greaterThan="medium">
