@@ -10,6 +10,7 @@ export const Wrapper = styled.div`
 
 export const Content = styled.div`
   flex: 1 0 auto;
+  margin-top: 4rem;
 `
 
 export const SectionFooter = styled.section`
