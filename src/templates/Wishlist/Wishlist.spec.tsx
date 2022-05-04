@@ -7,6 +7,7 @@ import gamesMock from 'components/GameCardSlider/mock'
 import highlightMock from 'components/Highlight/mock'
 
 const props: WishlistTemplateProps = {
+  games: gamesMock,
   recommendedGames: gamesMock.slice(0, 5),
   recommendHighlight: highlightMock
 }
@@ -30,5 +31,11 @@ describe('<Wishlist />', () => {
         name: /Wishlist/i
       })
     )
+  })
+
+  it('should render games', () => {
+    renderWithTheme(<Wishlist {...props} />)
+
+    expect(screen.getAllByText(/population zero/i)).toHaveLength(6)
   })
 })
