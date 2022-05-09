@@ -10,15 +10,14 @@
     "test:unit": "yarn test --watch",
     "build": "next build",
     "start": "next start",
+    "test:staged": "npm test -- --findRelatedTests",
     "lint": "eslint src --max-warnings=0",
     "generate": "yarn plop --plopfile ./generators/plopfile.js",
     "storybook": "start-storybook -s ./public -p 6006",
     "build-storybook": "build-storybook -s ./public"
   },
   "lint-staged": {
-    "src/**/*.{js,jsx,ts,tsx}": [
-      "yarn lint --fix"
-    ]
+    "src/**/*.{ts,tsx}": []
   },
   "dependencies": {
     "next": "12.1.0",
