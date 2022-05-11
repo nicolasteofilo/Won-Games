@@ -1,12 +1,12 @@
 export default [
   {
+    number: '**** **** **** 4325',
     flag: 'visa',
-    img: '/img/visa.png',
-    number: '**** **** **** 1234'
+    img: '/img/visa.png'
   },
   {
-    flag: 'mastercard',
+    number: '**** **** **** 4326',
     img: '/img/master-card.png',
-    number: '**** **** **** 1234'
+    flag: 'mastercard'
   }
 ]

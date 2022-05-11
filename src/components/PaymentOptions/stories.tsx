@@ -1,11 +1,28 @@
-import { Meta, Story } from '@storybook/react/types-6-0'
-import { PaymentOptions } from '.'
-
+import { Story, Meta } from '@storybook/react/types-6-0'
+import { PaymentOptions, PaymentOptionsProps } from '.'
 import cardsMock from './mock'
 
 export default {
   title: 'PaymentOptions',
-  component: PaymentOptions
+  component: PaymentOptions,
+  args: {
+    cards: cardsMock,
+    handlePayment: () => ({})
+  },
+  argTypes: {
+    handlePayment: {
+      action: 'clicked'
+    }
+  },
+  parameters: {
+    backgrounds: {
+      default: 'won-dark'
+    }
+  }
 } as Meta
 
-export const Basic: Story = () => <PaymentOptions cards={cardsMock} />
+export const Default: Story<PaymentOptionsProps> = (args) => (
+  <div style={{ padding: 16, maxWidth: 400 }}>
+    <PaymentOptions {...args} />
+  </div>
+)
