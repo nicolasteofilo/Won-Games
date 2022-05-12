@@ -80,7 +80,9 @@ const Footer = () => (
       </S.Column>
     </S.Content>
 
-    <S.Copyright>Won Games 2020 © All rights reserved.</S.Copyright>
+    <S.Copyright>
+      Won Games {new Date().getFullYear()} © All rights reserved.
+    </S.Copyright>
   </S.Wrapper>
 )
 
