@@ -1,9 +1,10 @@
 import { screen } from '@testing-library/react'
+import theme from 'styles/theme'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { ProfileMenu } from '.'
 
 describe('<ProfileMenu />', () => {
-  it('should render teh menu', () => {
+  it('should render the menu', () => {
     const { container } = renderWithTheme(<ProfileMenu />)
 
     expect(screen.getByRole('navigation')).toBeInTheDocument()
@@ -29,5 +30,16 @@ describe('<ProfileMenu />', () => {
     ).toHaveAttribute('href', '/logout')
 
     expect(container.firstChild).toMatchSnapshot()
+  })
+  it('should render the menu with an active link defined', () => {
+    renderWithTheme(<ProfileMenu activeLink="/profile/me" />)
+
+    expect(
+      screen.queryByRole('link', {
+        name: /My profile/i
+      })
+    ).toHaveStyle({
+      color: theme.colors.white
+    })
   })
 })
