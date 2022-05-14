@@ -75,4 +75,9 @@ describe('<Cart />', () => {
     expect(screen.getByTestId('mock showcase')).toBeInTheDocument()
     expect(container.firstChild).toMatchSnapshot()
   })
+
+  it('should render Empty section if there no items', () => {
+    renderWithTheme(<Cart {...props} items={[]} />)
+    expect(screen.getByTestId('mock empty')).toBeInTheDocument()
+  })
 })
