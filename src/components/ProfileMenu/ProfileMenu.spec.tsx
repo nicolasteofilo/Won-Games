@@ -4,7 +4,7 @@ import { ProfileMenu } from '.'
 
 describe('<ProfileMenu />', () => {
   it('should render teh menu', () => {
-    renderWithTheme(<ProfileMenu />)
+    const { container } = renderWithTheme(<ProfileMenu />)
 
     expect(screen.getByRole('navigation')).toBeInTheDocument()
     expect(
@@ -27,5 +27,7 @@ describe('<ProfileMenu />', () => {
         name: 'Sing out'
       })
     ).toHaveAttribute('href', '/logout')
+
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
