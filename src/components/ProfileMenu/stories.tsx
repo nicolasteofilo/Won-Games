@@ -11,4 +11,12 @@ export default {
   }
 } as Meta
 
-export const Basic: Story = () => <ProfileMenu />
+export const Basic: Story = () => (
+  <div
+    style={{
+      maxWidth: '25rem'
+    }}
+  >
+    <ProfileMenu />
+  </div>
+)
