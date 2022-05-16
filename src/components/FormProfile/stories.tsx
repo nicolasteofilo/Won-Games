@@ -6,4 +6,13 @@ export default {
   component: FormProfile
 } as Meta
 
-export const Basic: Story = () => <FormProfile />
+export const Basic: Story = () => (
+  <div
+    style={{
+      maxWidth: '80rem',
+      margin: 'auto'
+    }}
+  >
+    <FormProfile />
+  </div>
+)
