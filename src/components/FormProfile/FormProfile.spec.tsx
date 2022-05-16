@@ -4,7 +4,7 @@ import { FormProfile } from '.'
 
 describe('<FormProfile />', () => {
   it('should render the profile form', () => {
-    renderWithTheme(<FormProfile />)
+    const { container } = renderWithTheme(<FormProfile />)
 
     expect(
       screen.getByRole('heading', {
@@ -30,5 +30,6 @@ describe('<FormProfile />', () => {
         name: /save/i
       })
     ).toBeInTheDocument()
+    expect(container.firstChild).toMatchSnapshot()
   })
 })
