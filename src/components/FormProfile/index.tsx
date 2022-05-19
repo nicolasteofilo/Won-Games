@@ -32,7 +32,7 @@ const FormProfile = () => (
       />
       <TextField
         name="new_password"
-        type="new_password"
+        type="password"
         placeholder="new password"
         label="New password"
       />
