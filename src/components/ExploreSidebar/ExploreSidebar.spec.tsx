@@ -84,7 +84,7 @@ describe('<ExploreSidebar />', () => {
       })
     )
     expect(onFilter).toBeCalledWith({ windows: true, sort_by: 'low-to-high' })
-  }) 
+  })
 
   it('should altern between radio options', () => {
     const onFilter = jest.fn()
@@ -99,5 +99,4 @@ describe('<ExploreSidebar />', () => {
     )
     expect(onFilter).toBeCalledWith({ sort_by: 'low-to-high' })
   })
-
 })
