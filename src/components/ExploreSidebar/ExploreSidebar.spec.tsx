@@ -1,4 +1,4 @@
-import { screen } from '@testing-library/react'
+import { screen, fireEvent } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { ExploreSidebar } from '.'
 
@@ -6,7 +6,7 @@ import items from './mock'
 
 describe('<ExploreSidebar />', () => {
   it('should render headings', () => {
-    renderWithTheme(<ExploreSidebar items={items} />)
+    renderWithTheme(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
     expect(screen.getByRole('heading', { name: /price/i }))
     expect(screen.getByRole('heading', { name: /sort by/i }))
@@ -15,7 +15,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render inputs', () => {
-    renderWithTheme(<ExploreSidebar items={items} />)
+    renderWithTheme(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
     expect(
       screen.getByRole('checkbox', { name: /under \$50/i })
@@ -26,7 +26,7 @@ describe('<ExploreSidebar />', () => {
   })
 
   it('should render the filter button', () => {
-    renderWithTheme(<ExploreSidebar items={items} />)
+    renderWithTheme(<ExploreSidebar items={items} onFilter={jest.fn} />)
 
     expect(
       screen.getByRole('button', {
@@ -38,14 +38,37 @@ describe('<ExploreSidebar />', () => {
   it('should check initial values that are passed', () => {
     renderWithTheme(
       <ExploreSidebar
+        onFilter={jest.fn}
         items={items}
         initialValues={{
-          windows: true, sort_by: 'low-to-high'
+          windows: true,
+          sort_by: 'low-to-high'
         }}
       />
     )
 
     expect(screen.getByRole('checkbox', { name: /windows/i })).toBeChecked()
     expect(screen.getByRole('radio', { name: /low to high/i })).toBeChecked()
+  })
+
+  it('should filter with initial values', async () => {
+    const onFilter = jest.fn()
+
+    renderWithTheme(
+      <ExploreSidebar
+        items={items}
+        initialValues={{
+          windows: true,
+          sort_by: 'low-to-high'
+        }}
+        onFilter={onFilter}
+      />
+    )
+    await fireEvent.click(
+      screen.getByRole('button', {
+        name: /filter/i
+      })
+    )
+    expect(onFilter).toBeCalledWith({ windows: true, sort_by: 'low-to-high' })
   })
 })
