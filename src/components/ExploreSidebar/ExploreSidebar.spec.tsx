@@ -1,4 +1,4 @@
-import { screen, fireEvent } from '@testing-library/react'
+import { screen, fireEvent, userEvent } from '@testing-library/react'
 import { renderWithTheme } from 'utils/tests/helpers'
 import { ExploreSidebar } from '.'
 
@@ -51,7 +51,7 @@ describe('<ExploreSidebar />', () => {
     expect(screen.getByRole('radio', { name: /low to high/i })).toBeChecked()
   })
 
-  it('should filter with initial values', async () => {
+  it('should filter with initial values', () => {
     const onFilter = jest.fn()
 
     renderWithTheme(
@@ -64,7 +64,21 @@ describe('<ExploreSidebar />', () => {
         onFilter={onFilter}
       />
     )
-    await fireEvent.click(
+    fireEvent.click(
+      screen.getByRole('button', {
+        name: /filter/i
+      })
+    )
+    expect(onFilter).toBeCalledWith({ windows: true, sort_by: 'low-to-high' })
+  })
+
+  it('should filter with selected values', () => {
+    const onFilter = jest.fn()
+
+    renderWithTheme(<ExploreSidebar items={items} onFilter={onFilter} />)
+    fireEvent.click(screen.getByLabelText(/windows/i))
+    fireEvent.click(screen.getByLabelText(/low to high/i))
+    fireEvent.click(
       screen.getByRole('button', {
         name: /filter/i
       })
