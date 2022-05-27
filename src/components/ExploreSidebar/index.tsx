@@ -102,4 +102,3 @@ const ExploreSidebar = ({
 }
 
 export { ExploreSidebar }
-
