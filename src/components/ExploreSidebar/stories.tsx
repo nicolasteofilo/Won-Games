@@ -7,7 +7,7 @@ export default {
   title: 'ExploreSidebar',
   component: ExploreSidebar,
   parameters: {
-    backgroud: {
+    backgrounds: {
       default: 'won-dark'
     }
   },
